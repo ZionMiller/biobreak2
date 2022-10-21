@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+## Back end
 
-* Ruby version
+## _System dependencies_
 
-* System dependencies
+- Ruby 2.7.4
+- Rails 6.1.4
+- Postgresql 13.4
 
-* Configuration
+## _Configuration_
 
-* Database creation
+## _Database creation_
 
-* Database initialization
+- Rails db:create
 
-* How to run the test suite
+## _Database initialization_
 
-* Services (job queues, cache servers, search engines, etc.)
+- Rails db:migrate
 
-* Deployment instructions
+## _How to run the test suite_
 
-* ...
+- rake test
+
+## _Services (job queues, cache servers, search engines, etc.)_
+
+## _Deployment instructions_
+
+- ...
+
+# Front end
+
+- React 17.0.2
+
+## _Install dependencies_
+
+- npm install
+
+## _Run the app_
+
+- npm start
+
+## _Run the tests_
+
+- npm test
+
+## _Build the app_
+
+- npm run build
+
+- ...
