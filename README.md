@@ -1,5 +1,7 @@
 # README
 
+## Designed & Engineered by Zion Miller and Jared Mumaw
+
 ## Getting Started
 
 ## Back end
