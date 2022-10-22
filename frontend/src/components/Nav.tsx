@@ -9,13 +9,11 @@ const Nav = () => {
       <div className="navbar-brand">
         <a className="navbar-item" >
           <img
-            src="https://bulma.io/images/bulma-logo.png"
-            alt="Bulma: Free, open source, and modern CSS framework based on Flexbox"
-            width="112"
+            src={require("../Images/biobreak_logo.png")}
+            width="200"
             height="28"
           />
         </a>
-
         <a
           role="button"
           className="navbar-burger"
@@ -40,7 +38,9 @@ const Nav = () => {
           </Link> 
           </span>
           <span>
+          <Link to='/about'>
             <button className="button is-primary">About</button>
+          </Link> 
           </span>
         </div>
       </div>
