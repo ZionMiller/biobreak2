@@ -1,6 +1,10 @@
 import React from "react";
 
-const Login = () => {
+interface userProps{
+
+}
+
+const Login: React.FC<userProps> = ({}) => {
   return (
   <div>
     <div className="field">
