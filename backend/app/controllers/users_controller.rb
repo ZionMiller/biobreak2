@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # TODO: add before action to check if user is logged in
   def create
     @user = User.create!(user_params)
     if @user.save
