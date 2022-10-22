@@ -8,11 +8,13 @@ const Nav = () => {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" >
-          <img
-            src={require("../Images/biobreak_logo.png")}
-            width="200"
-            height="28"
-          />
+          <Link to='/about' >
+            <img
+              src={require("../Images/biobreak_logo.png")}
+              width="200"
+              height="28"
+            />
+          </Link>
         </a>
         <a
           role="button"
@@ -35,11 +37,6 @@ const Nav = () => {
           <span>
           <Link to='/login'>
             <button className="button is-primary">Login</button>
-          </Link> 
-          </span>
-          <span>
-          <Link to='/about'>
-            <button className="button is-primary">About</button>
           </Link> 
           </span>
         </div>
