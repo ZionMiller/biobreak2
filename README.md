@@ -33,6 +33,7 @@
 # Front end
 
 - React 17.0.2
+- Bulma CSS
 
 ## _Install dependencies_
 
