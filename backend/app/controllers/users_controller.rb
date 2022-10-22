@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:show]
-
   def create
     @user = User.create!(user_params)
-    if @user.valid?
-      render json: @user, status: :created
+    if @user.save
+      session[:user_id] = @user.id
+      render json: {
+        status: :created,
+        user: @user
+      }
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      @user.save
+      render json: {
+        error: @user.errors.full_messages
+      }, status: :unprocessable_entity
     end
   end
 
