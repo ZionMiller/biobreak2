@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users, only: %i[create show]
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
+  get '/me', to: 'users#show'
   get '/logout', to: 'sessions#destroy'
   get 'logged_in', to: 'sessions#logged_in?'
 end
