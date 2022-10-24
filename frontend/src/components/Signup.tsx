@@ -95,6 +95,7 @@ const Signup = () => {
       </div>
       <div className="column">
         <div className="field">
+          <label className="label">Password</label>
           <p className="control has-icons-left">
             <input
               className="input"
@@ -109,7 +110,6 @@ const Signup = () => {
             </span>
           </p>
         </div>
-
         <div className="confirmation">
           <p className="control has-icons-left">
             <input
@@ -125,26 +125,12 @@ const Signup = () => {
             </span>
           </p>
         </div>
-
         <div className="field">
           <div className="control">
             <label className="checkbox">
               <input type="checkbox" />I agree to the{" "}
               {/* TODO Modal here for users to view the contract to sell their soul */}
               <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="control">
-            <label className="radio">
-              <input type="radio" name="question" />
-              Yes
-            </label>
-            <label className="radio">
-              <input type="radio" name="question" />
-              No
             </label>
           </div>
         </div>

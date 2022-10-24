@@ -9,7 +9,6 @@ class UsersController < ApplicationController
         user: @user
       }
     else
-      @user.save
       render json: {
         error: @user.errors.full_messages
       }, status: :unprocessable_entity
@@ -17,7 +16,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find!(params[:id])
+  end
+
+  def current_user
+    @user ||= User.find!(session[:user_id])
+    if @user
+      render json: user: @user
+    else
+      render json: { error: 'No user is logged in' }, status: 401
+    end
   end
 
   private
