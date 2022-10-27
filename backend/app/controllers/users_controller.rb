@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# app/controllers/users_controller.rb
+
 class UsersController < ApplicationController
   # TODO: add before action to check if user is logged in
   def create
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
   def current_user
     @user ||= User.find!(session[:user_id])
     if @user
-      render json: user: @user
+      render json: { user: @user }
     else
       render json: { error: 'No user is logged in' }, status: 401
     end
