@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const Signup = () => {
+interface SignupProps {
+  updateUser: (user: any) => void;
+}
+
+const Signup: React.FC<SignupProps> = ({updateUser}: SignupProps) => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",

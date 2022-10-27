@@ -18,6 +18,7 @@ const App = () => {
     first: string;
     last: string;
   };
+  
 
   const [user, setUser] = useState<userData | null>(null);
 
@@ -44,7 +45,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/login" element={<Login updateUser={updateUser} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup updateUser={updateUser}/>} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
