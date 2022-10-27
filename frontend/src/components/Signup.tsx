@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
+
 
 interface SignupProps {
   updateUser: (user: any) => void;
 }
 
 const Signup: React.FC<SignupProps> = ({updateUser}: SignupProps) => {
+  const navigate = useNavigate()
+  const [errors, setErrors] = useState([])
+
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -22,9 +27,32 @@ const Signup: React.FC<SignupProps> = ({updateUser}: SignupProps) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    setFormState(formState)
     console.log(`current state: ${JSON.stringify(formState)}`);
+
+    fetch(`/signup`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formState)
+    })
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => {
+          updateUser(user)
+          // navigate(`/profile`) once we have profile routee & link
+        })
+      } else {
+        // working on error rendering here
+        // res.json().then(json => setErrors(Object.entries(json.errors)))
+      }
+    })
   };
+
 
   return (
     <div className="signup-login columns">
