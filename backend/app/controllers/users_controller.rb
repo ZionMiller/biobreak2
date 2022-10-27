@@ -1,17 +1,31 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:show]
-
+  # TODO: add before action to check if user is logged in
   def create
     @user = User.create!(user_params)
-    if @user.valid?
-      render json: @user, status: :created
+    if @user.save
+      session[:user_id] = @user.id
+      render json: {
+        status: :created,
+        user: @user
+      }
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      render json: {
+        error: @user.errors.full_messages
+      }, status: :unprocessable_entity
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find!(params[:id])
+  end
+
+  def current_user
+    @user ||= User.find!(session[:user_id])
+    if @user
+      render json: user: @user
+    else
+      render json: { error: 'No user is logged in' }, status: 401
+    end
   end
 
   private

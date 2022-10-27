@@ -1,7 +1,7 @@
 import React from "react";
 
 const Logout = () => {
-  return <div>Logout</div>;
+  return <div className="signup-login">Logout</div>;
 };
 
 export default Logout;
