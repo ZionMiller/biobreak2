@@ -8,7 +8,7 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ updateUser }: LoginProps) => {
   //storing data from the form
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -18,8 +18,8 @@ const Login: React.FC<LoginProps> = ({ updateUser }: LoginProps) => {
   //gives you access to the history instance that you may use to navigate.
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    // e.preventDefault()
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
     setFormData(formData);
 
     //make post request on submit
@@ -33,7 +33,7 @@ const Login: React.FC<LoginProps> = ({ updateUser }: LoginProps) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          // updateUser(user);
+          updateUser(user);
           navigate("/profile");
         });
       } else {
@@ -43,21 +43,21 @@ const Login: React.FC<LoginProps> = ({ updateUser }: LoginProps) => {
 
     //reset form
     setFormData({
-      username: "",
+      email: "",
       password: "",
     });
   };
 
-  const handleChange = () => {
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
-      // [e.target.name]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
   return (
     <div className="signup-login columns">
-      <div className="column">
+      <div className="column" onChange={handleChange}>
         {" "}
         <div className="field">
           <label className="label">Email</label>
@@ -84,7 +84,7 @@ const Login: React.FC<LoginProps> = ({ updateUser }: LoginProps) => {
 
       <div className="field">
         <p className="control">
-          <button className="button is-success">Login</button>
+          <button className="button is-success" onSubmit={handleSubmit}>Login</button>
         </p>
       </div>
     </div>
