@@ -7,6 +7,7 @@ import About from "./About";
 import { useEffect, useState } from "react";
 
   const App = () => {
+    
 
   const navigate = useNavigate();
 
