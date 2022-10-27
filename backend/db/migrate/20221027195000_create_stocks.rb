@@ -5,7 +5,7 @@ class CreateStocks < ActiveRecord::Migration[7.0]
       t.string :ticker
       t.string :country
       t.string :catalyst
-
+      t.string :biobreak_score
       t.timestamps
     end
   end
