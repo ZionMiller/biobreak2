@@ -5,31 +5,25 @@ import Login from "./Login";
 import Signup from "./Signup";
 import About from "./About";
 import { useEffect, useState } from "react";
+import { type } from "@testing-library/user-event/dist/type";
 
-  const App = () => {
-    
-
+const App = () => {
   const navigate = useNavigate();
 
-  type User = {
-    email: string;
+  type userData = {
+    id: number;
     username: string;
     password: string;
+    email: string;
     first: string;
     last: string;
-    linkedin: string;
-  }
+  };
 
-  const [user, setUser] = useState<User>({
-    email: '',
-    username: '',
-    password: '',
-    first: '',
-    last: '',
-    linkedin: '',
-  });
-  
-  const updateUser = (user: any) => setUser(user);
+  const [user, setUser] = useState<userData | null>(null);
+
+  const updateUser = (user: userData) => {
+    setUser(user);
+  };
 
   useEffect(() => {
     fetch("/me")
@@ -49,9 +43,9 @@ import { useEffect, useState } from "react";
     <div>
       <Nav />
       <Routes>
-        <Route path='/login' element={<Login updateUser={updateUser}/>}/>
-        <Route path='/signup' element={<Signup />}/>
-        <Route path='/about' element={<About />}/>
+        <Route path="/login" element={<Login updateUser={updateUser} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
