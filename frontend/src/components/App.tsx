@@ -18,7 +18,6 @@ const App = () => {
     first: string;
     last: string;
   };
-  
 
   const [user, setUser] = useState<userData | null>(null);
 
@@ -36,7 +35,15 @@ const App = () => {
     fetch("/logout", {
       method: "DELETE",
     });
-    // updateUser("");
+    updateUser({
+      id: 0,
+      username: "",
+      password: "",
+      email: "",
+      first: "",
+      last: "",
+    });
+
     navigate("/login");
   };
 
