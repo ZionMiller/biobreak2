@@ -11,7 +11,7 @@ const App = () => {
   const navigate = useNavigate()
 
   const [currentUser, setCurrentUser] = useState(null)
-  const updateUser = (user: any) => setCurrentUser(user)
+  const updateUser = ((user: any) => setCurrentUser(user))
 
   useEffect(() => {
     fetch("/me")
@@ -31,7 +31,7 @@ const App = () => {
     <div>
       <Nav />
       <Routes>
-        <Route path='/login' element={<Login />}/>
+        <Route path='/login' element={<Login /*updateUser={updateUser}*//>}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/about' element={<About />}/>
       </Routes>
