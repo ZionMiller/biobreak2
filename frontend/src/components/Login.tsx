@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface userProps{
 
-}
+const Login: React.FC = ({}) => {
 
-const Login: React.FC<userProps> = ({}) => {
-
-          //storing data from the form
+            //storing data from the form
           const [formData, setFormData] = useState({
             username: "",
             password: ""
@@ -56,8 +53,6 @@ const Login: React.FC<userProps> = ({}) => {
                 // [e.target.name]: e.target.value
                 })
         }
-
-const Login = (): any => {
 
   return (
     <div className="signup-login columns">

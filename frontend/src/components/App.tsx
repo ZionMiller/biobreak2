@@ -6,22 +6,41 @@ import Signup from "./Signup";
 import About from "./About";
 import { useEffect, useState } from "react";
 
-const App = () => {
+  const App = () => {
+
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
-  const updateUser = (user: any) => setCurrentUser(user);
+
+  type User = {
+    email: string;
+    username: string;
+    password: string;
+    first: string;
+    last: string;
+    linkedin: string;
+  }
+
+  const [user, setUser] = useState<User>({
+    email: '',
+    username: '',
+    password: '',
+    first: '',
+    last: '',
+    linkedin: '',
+  });
+  
+  const updateUser = (user: any) => setUser(user);
 
   useEffect(() => {
     fetch("/me")
       .then((r) => r.json())
-      .then((person) => setCurrentUser(person));
+      .then((person) => setUser(person));
   });
 
   const handleLogOut = () => {
     fetch("/logout", {
       method: "DELETE",
     });
-    updateUser("");
+    // updateUser("");
     navigate("/login");
   };
 
@@ -29,7 +48,7 @@ const App = () => {
     <div>
       <Nav />
       <Routes>
-        <Route path='/login' element={<Login /*updateUser={updateUser}*//>}/>
+        <Route path='/login' element={<Login updateUser={updateUser}/>}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/about' element={<About />}/>
       </Routes>
