@@ -1,6 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = (): any => {
+
+const Login: React.FC = ({}) => {
+
+            //storing data from the form
+          const [formData, setFormData] = useState({
+            username: "",
+            password: ""
+        })
+        
+    
+        //to display the errors
+        const [errors, setErrors] = useState([])
+    
+        //gives you access to the history instance that you may use to navigate.
+        const navigate = useNavigate()
+    
+        const handleSubmit = () => {
+            // e.preventDefault()
+            setFormData(formData);
+    
+            //make post request on submit
+           fetch(`/login`,{
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(formData)
+          })
+          .then(res => {
+            if(res.ok){
+                res.json().then(user => {
+                    // updateUser(user);
+                    navigate("/profile")
+                })
+            }else {
+                res.json().then(json => setErrors(json.errors))
+            }
+        })
+    
+          //reset form
+          setFormData({
+            username: "",
+            password: ""
+          })
+        }
+    
+        const handleChange = () => {
+            setFormData({...formData,
+                // [e.target.name]: e.target.value
+                })
+        }
+
   return (
     <div className="signup-login columns">
       <div className="column">

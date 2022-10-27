@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
   //https://bulma.io/documentation/components/navbar/
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" >
           <Link to='/about' >
-            <img
-              src={require("../Images/biobreak_logo.png")}
-              width="200"
-              height="28"
-            />
+            <img id="logo" src={require("../Images/biobreak_logo.png")} alt="logo"/>
           </Link>
         </a>
         <a
