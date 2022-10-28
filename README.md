@@ -1,54 +1,9 @@
 # README
 
-## Getting Started
+BioBreak helps biotech investors save time with novel data visualizations containing KPIs buried deep in SEC filings, clinical trials, and more. What used to take countless tabs and hours of careful reading can now be done at the click of a button.
 
-## Back end
+# Equities Included In Tool
+https://topforeignstocks.com/stock-lists/the-complete-list-of-biotech-stocks-trading-on-nasdaq/
 
-## _System dependencies_
-
-- Ruby 2.7.4
-- Rails 6.1.4
-- Postgresql 13.4
-
-## _Configuration_
-
-## _Database creation_
-
-- Rails db:create
-
-## _Database initialization_
-
-- Rails db:migrate
-
-## _How to run the test suite_
-
-- rake test
-
-## _Services (job queues, cache servers, search engines, etc.)_
-
-## _Deployment instructions_
-
-- ...
-
-# Front end
-
-- React 17.0.2
-- Bulma CSS
-
-## _Install dependencies_
-
-- npm install
-
-## _Run the app_
-
-- npm start
-
-## _Run the tests_
-
-- npm test
-
-## _Build the app_
-
-- npm run build
-
-- ...
+# Verson 1 of BioBreak
+https://github.com/ZionMiller/biobreak
