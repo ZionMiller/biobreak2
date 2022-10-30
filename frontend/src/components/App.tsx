@@ -25,11 +25,11 @@ const App = () => {
     setUser(user);
   };
 
-  useEffect(() => {
+  const getCurrentUser = () => {
     fetch("/me")
       .then((r) => r.json())
       .then((person) => setUser(person));
-  });
+  };
 
   const handleLogOut = () => {
     fetch("/logout", {
@@ -52,7 +52,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/login" element={<Login updateUser={updateUser} />} />
-        <Route path="/signup" element={<Signup updateUser={updateUser}/>} />
+        <Route path="/signup" element={<Signup updateUser={updateUser} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
