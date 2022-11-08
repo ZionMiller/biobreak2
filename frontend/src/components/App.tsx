@@ -4,8 +4,7 @@ import Nav from "./Nav";
 import Login from "./Login";
 import Signup from "./Signup";
 import About from "./About";
-import { useEffect, useState } from "react";
-import { type } from "@testing-library/user-event/dist/type";
+import { useState } from "react";
 
 const App = () => {
   type userData = {
@@ -22,7 +21,7 @@ const App = () => {
     if (!user) {
       return redirect("/login");
     }
-  };
+  }; //end of loader
 
   const [user, setUser] = useState<userData | null>(null);
 
